@@ -4,7 +4,6 @@
   "main": "dist/index.js",
   "scripts": {
     "build": "npx tsc",
-    "postinstall": "npm run update-types",
     "prestart": "npm run build",
     "start": "node .",
     "dev": "npx nodemon --config nodemon.json src/index.ts",
