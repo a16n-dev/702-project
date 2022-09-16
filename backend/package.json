@@ -9,7 +9,7 @@
     "start": "node .",
     "dev": "npx nodemon --config nodemon.json src/index.ts",
     "test": "",
-    "update-types": "npx dtsgen -o ./src/types/schema.d.ts ../spec.yaml"
+    "update-types": "npx dtsgen -o ./src/types/schema.d.ts ./spec.yaml"
   },
   "devDependencies": {
     "@types/cors": "^2.8.12",
