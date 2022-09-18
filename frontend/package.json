@@ -5,11 +5,15 @@
   "dependencies": {
     "@emotion/react": "latest",
     "@emotion/styled": "latest",
+    "@mui/icons-material": "^5.10.3",
     "@mui/material": "latest",
     "@types/react": "latest",
     "@types/react-dom": "latest",
     "react": "latest",
+    "react-dialog-async": "^1.1.1",
     "react-dom": "latest",
+    "react-router": "^6.4.0",
+    "react-router-dom": "^6.4.0",
     "react-scripts": "latest",
     "typescript": "latest"
   },
@@ -30,5 +34,9 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "devDependencies": {
+    "eslint": "^8.23.1",
+    "prettier": "^2.7.1"
   }
 }
