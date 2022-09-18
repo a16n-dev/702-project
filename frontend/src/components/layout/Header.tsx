@@ -29,7 +29,7 @@ export const Header = () => {
             color='inherit'
             aria-label='Go to Start'
             component={Link}
-            to='/instructions'
+            to='/'
           >
             <HomeIcon />
           </IconButton>
