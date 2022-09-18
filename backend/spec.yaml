@@ -14,3 +14,83 @@ paths:
       responses:
         "200":
           description: Info about the api
+
+  "/reflections":
+    get:
+      summary: Get all reflections
+      description: Get all reflections
+      tags: [reflections]
+      x-eov-operation-id: getReflections
+      x-eov-operation-handler: reflections
+      operationId: getReflections
+      responses:
+        "200":
+          description: Success.
+          content:
+            application/json:
+              schema:
+                type: object
+                required:
+                  - answers
+                  - questions
+                properties:
+                  answers:
+                    type: array
+                    items:
+                      type: array
+                      items:
+                        type: string
+                  questions:
+                    type: array
+                    items:
+                      type: string
+
+    post:
+      summary: Create a reflection
+      description: Create a reflection
+      tags: [reflections]
+      x-eov-operation-id: createReflection
+      x-eov-operation-handler: reflections
+      operationId: createReflection
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required:
+                - answers
+                - levelData
+              properties:
+                answers:
+                  type: array
+                  items:
+                    type: string
+                levelData:
+                  type: object
+      responses:
+        "201":
+          description: Successfully created the reflection
+        "400":
+          $ref: "#/components/responses/ParseError"
+
+components:
+  schemas:
+    Error:
+      description: Schema which represents the JSON returned for errors and other conditions which expect status updates.
+      type: object
+      required:
+        - message
+      properties:
+        message:
+          description: The status message.
+          example: Invalid request.
+          type: string
+
+  responses:
+    ParseError:
+      description: The server failed to parse the request.
+      content:
+        application/json:
+          schema:
+            $ref: "#/components/schemas/Error"

@@ -5,6 +5,7 @@ tmp/
 .projectile
 logs/
 .env
+dist/
 
 *.tern-port
 node_modules/

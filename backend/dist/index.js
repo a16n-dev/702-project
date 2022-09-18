@@ -29,7 +29,6 @@ Object.defineProperty(exports, "__esModule", { value: true });
 var dotenv_1 = __importDefault(require("dotenv"));
 dotenv_1.default.config();
 var express_1 = __importDefault(require("express"));
-var path_1 = __importDefault(require("path"));
 var OpenApiValidator = __importStar(require("express-openapi-validator"));
 var logger_1 = __importDefault(require("./util/logger"));
 var express_winston_1 = __importDefault(require("express-winston"));
@@ -44,17 +43,24 @@ app.use(express_winston_1.default.logger({
     msg: '{{req.hostname}} - - - "{{req.method}} {{req.url}} HTTP{{req.httpVersion}}" {{res.statusCode}} -',
     colorize: true
 }));
-app.get('/', function (req, res) {
-    return res.status(200).json({
-        apiVersion: 1.0
-    });
-});
+// app.get('/', (req, res) => {
+//     return res.status(200).json({
+//         apiVersion: 1.0
+//     })
+// })
+// endpoint for dumping all of the data from all of the levels
+// endpoint for saving the user's reflection
+//     - string array, answers
+// endpoint for getting a list of all the reflections done by other people
+//     - array of questions and then array of array of answers
 app.use(OpenApiValidator.middleware({
-    apiSpec: '../spec.yaml',
+    apiSpec: './spec.yaml',
     validateRequests: true,
     validateResponses: true,
-    operationHandlers: path_1.default.join(__dirname + '/controllers')
 }));
+var reflections_1 = require("./controllers/reflections");
+app.get('/reflections', reflections_1.getReflections);
+app.post('/reflections', reflections_1.createReflection);
 app.use(function (err, req, res, next) {
     if (!(err.status && err.errors)) {
         return next(err);
