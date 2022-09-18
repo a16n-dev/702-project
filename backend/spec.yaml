@@ -1,0 +1,16 @@
+openapi: 3.0.0
+info:
+  version: "1.0"
+  title: HCI Backend
+  description: HCI Backend
+servers:
+  - url: "https://hciapi.petergoedeke.tech"
+
+paths:
+  "/":
+    get:
+      summary: Get
+      description: Get api info
+      responses:
+        "200":
+          description: Info about the api
