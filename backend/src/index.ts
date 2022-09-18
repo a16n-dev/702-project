@@ -31,12 +31,6 @@ app.use(
 //     })
 // })
 
-// endpoint for dumping all of the data from all of the levels
-// endpoint for saving the user's reflection
-//     - string array, answers
-// endpoint for getting a list of all the reflections done by other people
-//     - array of questions and then array of array of answers
-
 app.use(
     OpenApiValidator.middleware({
         apiSpec: './spec.yaml',
