@@ -10,7 +10,15 @@ import {
  * @see GameContextState
  */
 export const GameProvider = ({ children }: PropsWithChildren) => {
-  const [state, setState] = useState<GameContextState>(gameContextInitalState);
+  const [controls, setControls] = useState<Record<string, number>>({});
+
+  const state: GameContextState = {
+    controls,
+    level: 0,
+    updateControls: (key: string, value: number) => {
+      setControls({ ...controls, [key]: value });
+    },
+  };
 
   return <gameContext.Provider value={state}>{children}</gameContext.Provider>;
 };

@@ -7,10 +7,14 @@ import { createContext } from 'react';
  */
 export interface GameContextState {
   level: number;
+  updateControls: (name: string, value: number) => void;
+  controls: Record<string, number>;
 }
 
 export const gameContextInitalState = {
   level: 0,
+  controls: {},
+  updateControls: () => {},
 };
 
 export const gameContext = createContext<GameContextState>(

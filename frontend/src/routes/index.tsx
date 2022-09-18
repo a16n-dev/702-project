@@ -9,7 +9,7 @@ export const routes: RouteObject[] = [
     element: <Layout />,
     children: [
       {
-        path: '/instructions',
+        index: true,
         element: <Instructions />,
       },
       {
