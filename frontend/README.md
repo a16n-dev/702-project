@@ -1,42 +1,18 @@
-# Create React App example with TypeScript
+# 702 Fitts Law App
 
-## How to use
-
-Download the example [or clone the repo](https://github.com/mui/material-ui):
-
-<!-- #default-branch-switch -->
+## Setup
 
 ```sh
-curl https://codeload.github.com/mui/material-ui/tar.gz/master | tar -xz --strip=2 material-ui-master/examples/create-react-app-with-typescript
-cd create-react-app-with-typescript
+# Install dependencies
+yarn
+# Run the app in development
+yarn start
 ```
 
-Install it and run:
+## Levels
 
-```sh
-npm install
-npm start
-```
+The user plays through mulitple levels, and can control different UI elements in each level. The levels are defined in `src/common/levels.tsx`.
 
-or:
+The variables the user can control are defined in `src/common/variables.ts`.
 
-<!-- #default-branch-switch -->
-
-[![Edit on CodeSandbox](https://codesandbox.io/static/img/play-codesandbox.svg)](https://codesandbox.io/s/github/mui/material-ui/tree/master/examples/create-react-app-with-typescript)
-
-<!-- #default-branch-switch -->
-
-[![Edit on StackBlitz](https://developer.stackblitz.com/img/open_in_stackblitz.svg)](https://stackblitz.com/github/mui/material-ui/tree/master/examples/create-react-app-with-typescript)
-
-## The idea behind the example
-
-This example demonstrates how you can use [Create React App](https://github.com/facebookincubator/create-react-app) with [TypeScript](https://github.com/Microsoft/TypeScript).
-It includes `@mui/material` and its peer dependencies, including `emotion`, the default style engine in MUI v5.
-If you prefer, you can [use styled-components instead](https://mui.com/material-ui/guides/interoperability/#styled-components).
-
-## What's next?
-
-<!-- #default-branch-switch -->
-
-You now have a working example project.
-You can head back to the documentation, continuing browsing it from the [templates](https://mui.com/material-ui/getting-started/templates/) section.
+Each level has a corresponding tutorial and info screen that is defined in the `src/components/game/instructions` folder
