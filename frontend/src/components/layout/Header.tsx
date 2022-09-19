@@ -20,11 +20,11 @@ export const Header = () => {
   const tutorialDialog = useDialog(TutorialDialog);
 
   return (
-    <AppBar position='static'>
+    <AppBar position='sticky'>
       <Toolbar>
         <Typography>Hello!</Typography>
         <Box sx={{ flexGrow: 1 }} />
-        <Tooltip title='Go to Start'>
+        {/* <Tooltip title='Go to Start'>
           <IconButton
             color='inherit'
             aria-label='Go to Start'
@@ -42,7 +42,7 @@ export const Header = () => {
           >
             <HelpIcon />
           </IconButton>
-        </Tooltip>
+        </Tooltip> */}
       </Toolbar>
     </AppBar>
   );
