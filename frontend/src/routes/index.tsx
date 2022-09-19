@@ -4,6 +4,7 @@ import { Results } from '../pages/game/Results';
 import { Instructions } from '../pages/instructions';
 import { Layout } from '../pages/Layout';
 import { Questionaire } from '../pages/reflections/Questionaire';
+import { ReflectionResponses } from '../pages/reflections/ReflectionResponses';
 
 export const routes: RouteObject[] = [
   {
@@ -21,6 +22,10 @@ export const routes: RouteObject[] = [
       {
         path: '/reflections',
         element: <Questionaire />,
+      },
+      {
+        path: '/reflection-responses',
+        element: <ReflectionResponses />,
       },
       {
         path: 'results',

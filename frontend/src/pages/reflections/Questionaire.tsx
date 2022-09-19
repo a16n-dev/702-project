@@ -1,4 +1,5 @@
 import { Button, Container, Stack, TextField, Typography } from '@mui/material';
+import { Link } from 'react-router-dom';
 
 const QUESTIONS = [
   {
@@ -46,7 +47,15 @@ export const Questionaire = () => {
             <TextField multiline rows={2} label={q.question} key={q.key} />
           ))}
         </Stack>
-        <Button variant='contained'>Submit Answers</Button>
+        <Button
+          size='large'
+          sx={{ alignSelf: 'flex-start' }}
+          variant='contained'
+          component={Link}
+          to='/reflection-responses'
+        >
+          Submit Answers
+        </Button>
       </Stack>
     </Container>
   );

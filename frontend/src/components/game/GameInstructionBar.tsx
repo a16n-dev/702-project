@@ -1,8 +1,24 @@
 import { Stack, Typography } from '@mui/material';
+import { useEffect, useRef, useState } from 'react';
 import { useGame } from '../../hooks/useGameState';
+
+const formatNumberAsTime = (x: number) =>
+  `${Math.floor(x / 600)}:${((x / 10) % 60).toFixed().padStart(2, '0')}`;
 
 export const GameInstructionBar = () => {
   const ctx = useGame();
+  const [timer, setTimer] = useState(0);
+  const timerRef = useRef<number>();
+
+  useEffect(() => {
+    if (ctx.currentGameState) {
+      timerRef.current = window.setTimeout(() => setTimer((t) => t + 1), 100);
+    } else {
+      setTimer(0);
+    }
+
+    return () => window.clearTimeout(timerRef.current);
+  }, [ctx.currentGameState, timer]);
 
   if (!ctx.currentGameState)
     return (
@@ -27,7 +43,7 @@ export const GameInstructionBar = () => {
         {`React ${task.emoji} to ${task.person}'s Message`}
       </Typography>
       <Typography sx={{ flex: '1 1 0' }} align='right'>
-        {`Time Taken: 0:00`}
+        {`Time Taken: ${formatNumberAsTime(timer)}`}
       </Typography>
     </Stack>
   );
