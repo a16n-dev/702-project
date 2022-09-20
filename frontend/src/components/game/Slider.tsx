@@ -19,9 +19,11 @@ export const Slider = ({ controls, disabled, ...rest }: SliderProps) => {
       <MuiSlider
         {...rest}
         disabled={disabled}
-        step={0.1}
+        step={1}
         value={ctx.controls[controls]}
         onChange={(e, v) => ctx.updateControls(controls, v as number)}
+        valueLabelFormat={(v) => `${v.toFixed(0)}px`}
+        valueLabelDisplay='auto'
       />
       <OutlinedInput
         disabled={disabled}

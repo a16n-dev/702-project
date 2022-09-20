@@ -1,4 +1,4 @@
-import { Divider, Grid } from '@mui/material';
+import { Divider, Grid, Stack } from '@mui/material';
 import { Game } from '../../components/game/Game';
 import { GameInstructionBar } from '../../components/game/GameInstructionBar';
 import { GameProvider } from '../../components/game/GameProvider';
@@ -8,8 +8,10 @@ export const GameLayout = () => (
   <GameProvider>
     <Grid container sx={{ flexGrow: 1 }}>
       <Grid item xs={9}>
-        <GameInstructionBar />
-        <Game />
+        <Stack sx={{ height: '100%' }}>
+          <GameInstructionBar />
+          <Game />
+        </Stack>
       </Grid>
       <Divider orientation='vertical' flexItem />
       <Grid item xs>

@@ -40,8 +40,8 @@ export const VariableData: { [k in Variable]: VariableInfo } = {
   navbarItemSize: {
     label: 'Navbar Item Size',
     min: 0,
-    max: 10,
-    default: 5,
+    max: 100,
+    default: 50,
   },
   reactPosition: {
     label: 'React Position',
