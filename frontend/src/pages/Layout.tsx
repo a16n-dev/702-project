@@ -9,7 +9,7 @@ import { Header } from '../components/layout/Header';
 export const Layout = () => {
   return (
     <Container sx={{ boxShadow: 8 }} disableGutters maxWidth='xl'>
-      <Stack sx={{ minHeight: '100vh' }}>
+      <Stack sx={{ minHeight: '100vh', overflowY: 'hidden' }}>
         <Header />
         <Outlet />
         <Divider />

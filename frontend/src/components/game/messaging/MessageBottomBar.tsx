@@ -19,7 +19,7 @@ export const MessageBottomBar = () => {
         }}
         direction='row'
       >
-        <Typography variant='body2'>Type something here...</Typography>
+        <Typography>Type something here...</Typography>
       </Stack>
       <Button onClick={ctx.advanceGameState}>Continue</Button>
     </Stack>

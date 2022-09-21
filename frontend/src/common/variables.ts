@@ -18,6 +18,7 @@ export interface VariableInfo {
   min: number;
   max: number;
   default: number;
+  unit?: string;
 }
 
 /**
@@ -38,9 +39,9 @@ export const VariableData: { [k in Variable]: VariableInfo } = {
   },
 
   navbarItemSize: {
-    label: 'Navbar Item Size',
+    label: 'Navbar Item Height',
     min: 0,
-    max: 100,
+    max: 99,
     default: 50,
   },
   reactPosition: {

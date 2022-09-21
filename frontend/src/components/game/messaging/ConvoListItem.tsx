@@ -6,8 +6,13 @@ export const ConvoListItem = () => {
 
   return (
     <ListItemButton sx={{ height: `${ctx.controls.navbarItemSize}px` }}>
-      <Stack direction={'row'} spacing={1}>
-        <Avatar />
+      <Stack direction={'row'} spacing={1} alignItems='center'>
+        <Avatar
+          sx={{
+            height: `${ctx.controls.navbarItemSize / 1.5}px`,
+            width: `${ctx.controls.navbarItemSize / 1.5}px`,
+          }}
+        />
         <Stack>
           <Typography>Lorem Ipsum</Typography>
           <Typography variant='body2' color='text.disabled'>

@@ -22,6 +22,9 @@ export const Game = () => {
           <ConvoListItem />
           <ConvoListItem />
           <ConvoListItem />
+          <ConvoListItem />
+          <ConvoListItem />
+          <ConvoListItem />
         </ConvoList>
       </Grid>
       <Divider orientation='vertical' flexItem />
