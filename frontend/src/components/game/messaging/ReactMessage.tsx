@@ -16,7 +16,7 @@ export const ReactMessage = ({ message, react }: ReactMessageProps) => {
   };
   return (
     <Stack>
-      {selectEmote && <EmoteBar />}
+      {selectEmote && <EmoteBar emote={react} />}
       <Stack direction='row' alignItems={'center'}>
         <Box
           sx={{
