@@ -1,7 +1,5 @@
-import { Box, IconButton, Stack, Tooltip } from '@mui/material';
-import { EmoteBar } from './EmoteBar';
-import AddCircleIcon from '@mui/icons-material/AddCircle';
-import { useState } from 'react';
+import { Box, Stack, Tooltip } from '@mui/material';
+import { useGame } from '../../../hooks/useGameState';
 
 export enum MessageType {
   SENT = 'SENT',
@@ -27,6 +25,8 @@ export interface MessageProps {
  * Renders a message in the chat
  */
 export const Message = ({ message, hasAbove, hasBelow }: MessageProps) => {
+  const ctx = useGame();
+
   return (
     <Stack
       direction={message.type === MessageType.RECIEVED ? 'row' : 'row-reverse'}
@@ -65,6 +65,8 @@ export const Message = ({ message, hasAbove, hasBelow }: MessageProps) => {
                 ? 'text.primary'
                 : 'common.white',
             maxWidth: 450,
+            height: `${ctx.controls.messageSize * 5}px`,
+            width: `${ctx.controls.messageSize * 40}px`,
           }}
         >
           {message.content}

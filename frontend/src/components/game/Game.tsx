@@ -1,4 +1,5 @@
 import { Box, Button, Divider, Grid, Stack, Typography } from '@mui/material';
+import { names } from '../../common/names';
 import { Variable } from '../../common/variables';
 import { useGame } from '../../hooks/useGameState';
 import { ConvoList } from './messaging/ConvoList';
@@ -18,13 +19,9 @@ export const Game = () => {
     <Grid container sx={{ flexGrow: 1 }}>
       <Grid item xs={3.5}>
         <ConvoList>
-          <ConvoListItem />
-          <ConvoListItem />
-          <ConvoListItem />
-          <ConvoListItem />
-          <ConvoListItem />
-          <ConvoListItem />
-          <ConvoListItem />
+          {names.map((name, i) => (
+            <ConvoListItem name={name} time={i} />
+          ))}
         </ConvoList>
       </Grid>
       <Divider orientation='vertical' flexItem />

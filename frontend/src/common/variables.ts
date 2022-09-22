@@ -8,9 +8,9 @@ export enum Variable {
   messagePosition = 'messagePosition',
   messageSize = 'messageSize',
   // React UI
-  reactPosition = 'reactPosition',
+  reactButtonSize = 'reactButtonSize',
   reactSpacing = 'reactSpacing',
-  reactSize = 'reactSize',
+  reactBarSize = 'reactBarSize',
 }
 
 export interface VariableInfo {
@@ -33,33 +33,33 @@ export const VariableData: { [k in Variable]: VariableInfo } = {
   },
   messageSize: {
     label: 'Message Size',
-    min: 0,
-    max: 10,
-    default: 5,
+    min: 7,
+    max: 11,
+    default: 11,
   },
 
   navbarItemSize: {
     label: 'Navbar Item Height',
-    min: 0,
+    min: 42,
     max: 99,
     default: 50,
   },
-  reactPosition: {
-    label: 'React Position',
-    min: 0,
-    max: 10,
-    default: 5,
+  reactButtonSize: {
+    label: 'React Button Size',
+    min: 2,
+    max: 6,
+    default: 2,
   },
   reactSpacing: {
     label: 'React Spacing',
     min: 0,
-    max: 10,
-    default: 5,
+    max: 6,
+    default: 6,
   },
-  reactSize: {
-    label: 'React Size',
-    min: 0,
-    max: 10,
+  reactBarSize: {
+    label: 'React Bar Size',
+    min: 5,
+    max: 15,
     default: 5,
   },
 };
