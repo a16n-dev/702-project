@@ -1,5 +1,5 @@
 import { Button, Divider, Stack, Typography } from '@mui/material';
-import { useEffect, useMemo } from 'react';
+import { useEffect, useMemo, useRef, useState } from 'react';
 import { useDialog } from 'react-dialog-async';
 import { LEVELS } from '../../common/levels';
 import { VariableData } from '../../common/variables';
@@ -13,7 +13,8 @@ import { Slider } from './Slider';
  */
 export const GameSidebar = () => {
   const ctx = useGame();
-
+  const [timer, setTimer] = useState(0);
+  const timerRef = useRef<number>();
   const levelData = useMemo(() => LEVELS[ctx.level], [ctx.level]);
 
   const tutorialDialog = useDialog(GameTutorialDialog);
@@ -26,6 +27,17 @@ export const GameSidebar = () => {
       });
     }
   };
+
+  const startGame = () => {
+    ctx.startGame();
+    setTimer(0);
+  };
+  useEffect(() => {
+    if (ctx.currentGameState) {
+      timerRef.current = window.setTimeout(() => setTimer((t) => t + 1), 100);
+    }
+    return () => window.clearTimeout(timerRef.current);
+  }, [ctx.currentGameState, timer]);
 
   useEffect(() => {
     showTutorial();
@@ -70,7 +82,7 @@ export const GameSidebar = () => {
           fullWidth
           size='large'
           variant='contained'
-          onClick={() => ctx.startGame()}
+          onClick={() => startGame()}
         >
           {ctx.hasCompletedCurrentLevel ? 'Replay Level' : 'Test UI'}
         </Button>
@@ -85,6 +97,7 @@ export const GameSidebar = () => {
           Next Level
         </Button>
       </Stack>
+      <Typography variant='h6'> Time Taken: {timer} ms</Typography>
     </Stack>
   );
 };
