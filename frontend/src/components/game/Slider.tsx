@@ -39,7 +39,13 @@ export const Slider = ({ controls, disabled, ...rest }: SliderProps) => {
           disabled={disabled}
           value={ctx.controls[controls]}
           onChange={(e) => ctx.updateControls(controls, Number(e.target.value))}
-          endAdornment={<InputAdornment position='end'>px</InputAdornment>}
+          endAdornment={
+            VariableData[controls].unit ? (
+              <InputAdornment position='end'>
+                {VariableData[controls].unit}
+              </InputAdornment>
+            ) : undefined
+          }
         />
       </Grid>
     </Grid>
