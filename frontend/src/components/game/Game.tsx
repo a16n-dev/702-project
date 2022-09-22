@@ -32,7 +32,7 @@ export const Game = () => {
         <Stack sx={{ height: '100%' }}>
           <MessageHeader />
           <Divider />
-          <MessageDisplay />
+          <MessageDisplay message='Placeholder' emote='sad' />
           <Divider />
           <MessageBottomBar />
         </Stack>

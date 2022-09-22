@@ -1,4 +1,7 @@
-import { Box, Stack, Tooltip } from '@mui/material';
+import { Box, IconButton, Stack, Tooltip } from '@mui/material';
+import { EmoteBar } from './EmoteBar';
+import AddCircleIcon from '@mui/icons-material/AddCircle';
+import { useState } from 'react';
 
 export enum MessageType {
   SENT = 'SENT',
@@ -27,7 +30,10 @@ export const Message = ({ message, hasAbove, hasBelow }: MessageProps) => {
   return (
     <Stack
       direction={message.type === MessageType.RECIEVED ? 'row' : 'row-reverse'}
-      sx={{ pt: !hasAbove ? 0.5 : undefined, pb: !hasBelow ? 0.5 : undefined }}
+      sx={{
+        pt: !hasAbove ? 0.5 : undefined,
+        pb: !hasBelow ? 0.5 : undefined,
+      }}
     >
       <Tooltip
         title={message.time.toLocaleString(undefined, {
