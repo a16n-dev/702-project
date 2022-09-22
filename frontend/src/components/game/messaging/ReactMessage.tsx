@@ -17,7 +17,7 @@ export const ReactMessage = ({ message, react }: ReactMessageProps) => {
   return (
     <Stack>
       {selectEmote && <EmoteBar />}
-      <Stack direction='row'>
+      <Stack direction='row' alignItems={'center'}>
         <Box
           sx={{
             borderRadius: 6,
