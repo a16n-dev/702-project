@@ -16,9 +16,11 @@ export const Level4Tutorial = () => (
       </Typography>
       <br />
       <Typography fontWeight={'medium'} textAlign={'center'}>
-        This level requires you to change the navigation bar to be larger, use
-        the scroll bar on the right panel to change the navigation size to suit
-        the web page.
+        This level requires you to change the React Bar. You can change the size
+        and spacing of the Emojis as well as the Bar itself. Use the scroll bar
+        on the right panel to change the React Bar to suit the web page. Think
+        about the distance and size components of Fitts' law as you make
+        changes.
       </Typography>
       <br />
       <Typography textAlign={'center'} fontWeight={'bold'}>

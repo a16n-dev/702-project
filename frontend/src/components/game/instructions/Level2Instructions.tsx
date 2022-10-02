@@ -8,9 +8,9 @@ export const Level2Instructions = () => (
   <Stack>
     <Typography>
       Level 2 requires you to change the Navigation Bar size. Change the
-      navigation to be larger and more suitable to the page. React to the
-      prompted person, with the right emoji, 5 times to pass. You're speed will
-      be measured to show you the speed up later on!
+      navigation to be more suitable to the page. React to the prompted person,
+      with the right emoji, 5 times to pass. Your speed will be measured to show
+      you the speed up in reaction time later on!
     </Typography>
   </Stack>
 );

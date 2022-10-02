@@ -19,8 +19,9 @@ export const Level3Tutorial = () => (
       <br />
       <Typography fontWeight={'medium'} textAlign={'center'}>
         This level requires you to change both the distance and size of Message
-        Boxes. Think about the distance and size components of Fitts' law as you
-        make changes.
+        Boxes. Use the scroll bar on the right panel to change the Message Boxes
+        to suit the web page. Think about the distance and size components of
+        Fitts' law as you make changes.
       </Typography>
       <br />
       <Typography textAlign={'center'} fontWeight={'bold'}>
