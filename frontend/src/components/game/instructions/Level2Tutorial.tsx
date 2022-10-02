@@ -18,10 +18,10 @@ export const Level2Tutorial = () => (
       </Typography>
       <br />
       <Typography fontWeight={'medium'} textAlign={'center'}>
-        This level requires you to change the Navigation Bar to be larger, use
-        the scroll bar on the right panel to change the navigation size to suit
-        the web page. Think about the distance and size components of Fitts' law
-        as you make changes.
+        This level requires you to change the Navigation Bar, use the scroll bar
+        on the right panel to change the navigation size to suit the web page.
+        Think about the distance and size components of Fitts' law as you make
+        changes.
       </Typography>
       <br />
       <Typography textAlign={'center'} fontWeight={'bold'}>
