@@ -18,9 +18,9 @@ export const Tutorial = () => {
           {' '}
           1. Reacting to messages without changing the UI
         </Typography>
-        <Typography> 2. Adjusting the Navigation Bar size</Typography>
-        <Typography> 3. Adjusting the Message Box size</Typography>
-        <Typography> 4.Adjusting the React Bar size</Typography>
+        <Typography> 2. Adjusting the Navigation Bar</Typography>
+        <Typography> 3. Adjusting the Message Boxes</Typography>
+        <Typography> 4. Adjusting the React Bar</Typography>
         <br />
         <Typography>
           Each level your time taken to complete the level will be measured.
