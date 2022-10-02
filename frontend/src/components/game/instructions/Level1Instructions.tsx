@@ -7,10 +7,9 @@ export const Level1Instructions = () => (
   // TODO: Implement this component
   <Stack>
     <Typography>
-      Culpa incididunt proident nulla esse nulla magna voluptate esse cupidatat
-      tempor aliqua ullamco cupidatat labore. Reprehenderit sint culpa labore ad
-      incididunt deserunt adipisicing mollit occaecat. Irure aliquip laboris
-      magna minim nulla nostrud.
+      This levels does not require you to make any changes. React to the
+      prompted person, with the right emoji, 5 times to pass. You're speed will
+      be measured to show you the speed up later on!
     </Typography>
   </Stack>
 );

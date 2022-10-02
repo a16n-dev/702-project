@@ -1,10 +1,29 @@
-import { Stack, Typography } from '@mui/material';
+import { Stack, Typography, Paper, Box } from '@mui/material';
 
 export const Level4Tutorial = () => (
   // TODO: Implement this component
   <Stack>
-    <Typography>
-      This is a placeholder for the tutorial popup shown for level 4
-    </Typography>
+    <Typography>This level requires you to change the React Bar.</Typography>
+    <Paper sx={{ p: 2 }} variant='outlined'>
+      <br />
+      <Typography>
+        Follow the instructions on the green bar. React to the messages as fast
+        as possible. You need to{' '}
+        <Box fontWeight='bold' display='inline'>
+          react to the correct message 5 times{' '}
+        </Box>
+        in order to stop the timer and complete the level.
+      </Typography>
+      <br />
+      <Typography fontWeight={'medium'} textAlign={'center'}>
+        This level requires you to change the navigation bar to be larger, use
+        the scroll bar on the right panel to change the navigation size to suit
+        the web page.
+      </Typography>
+      <br />
+      <Typography textAlign={'center'} fontWeight={'bold'}>
+        Press "Test UI" to begin the test.
+      </Typography>
+    </Paper>
   </Stack>
 );

@@ -7,10 +7,10 @@ export const Level2Instructions = () => (
   // TODO: Implement this component
   <Stack>
     <Typography>
-      Culpa incididunt proident nulla esse nulla magna voluptate esse cupidatat
-      tempor aliqua ullamco cupidatat labore. Reprehenderit sint culpa labore ad
-      incididunt deserunt adipisicing mollit occaecat. Irure aliquip laboris
-      magna minim nulla nostrud.
+      Level 2 requires you to change the Navigation Bar size. Change the
+      navigation to be larger and more suitable to the page. React to the
+      prompted person, with the right emoji, 5 times to pass. You're speed will
+      be measured to show you the speed up later on!
     </Typography>
   </Stack>
 );
