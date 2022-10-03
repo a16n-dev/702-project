@@ -1,5 +1,13 @@
 import { createContext } from 'react';
+import { EMOJIS } from '../common/emojis';
 import { Variable, VariableData } from '../common/variables';
+
+export interface GameChat {
+  id: number;
+  name: string;
+  completed: boolean;
+  targetReact: typeof EMOJIS[number];
+}
 
 /**
  * The game context state stores information about the "game" such as the level
@@ -10,19 +18,19 @@ export interface GameContextState {
   level: number;
   updateControls: (name: string, value: number) => void;
   controls: Record<Variable, number>;
-
-  startGame: () => void;
-  advanceGameState: () => void;
   hasCompletedCurrentLevel: boolean;
+  startGame: () => void;
   goToNextLevel: () => void;
 
   currentGameState?: {
-    task: {
-      person: string;
-      emoji: string;
-    };
+    chats: { [id: number]: GameChat };
+    activeChatId: number;
     tasksCompleted: number;
     totalTasks: number;
+
+    // Interact with the current level
+    goToChat: (id: number) => void;
+    reactToMessage: (chatId: number, react: typeof EMOJIS[number]) => void;
   };
 }
 
