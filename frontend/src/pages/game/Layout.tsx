@@ -1,6 +1,5 @@
 import { Divider, Grid, Stack } from '@mui/material';
 import { Game } from '../../components/game/Game';
-import { GameInstructionBar } from '../../components/game/GameInstructionBar';
 import { GameProvider } from '../../components/game/GameProvider';
 import { GameSidebar } from '../../components/game/GameSidebar';
 
