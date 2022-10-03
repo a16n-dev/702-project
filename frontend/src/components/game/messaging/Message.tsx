@@ -106,7 +106,7 @@ export const Message = ({ message, hasAbove, hasBelow }: MessageProps) => {
           )}
         </Box>
       </Tooltip>
-      <Stack direction={'row'} sx={{ width: 64, px: 1 }} alignItems='center'>
+      <Stack direction={'row'} sx={{ px: 1 }} alignItems='center'>
         <ReactButton messageId={message.id} />
       </Stack>
     </Stack>

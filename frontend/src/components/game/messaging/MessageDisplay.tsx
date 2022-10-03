@@ -23,17 +23,19 @@ export const MessageDisplay = () => {
     }
   }, [ctx.activeChatId, scrollContainerRef.current?.scrollHeight]);
 
-  const sortedMessages = [
-    ...chat.messages,
-    {
-      id: -1,
-      react: chat.currentReact,
-      content: `React ${chat.targetReact} to this message`,
-      time: chat.messages[chat.messages.length - 1].time,
-      type: MessageType.RECIEVED,
-      canReact: true,
-    },
-  ];
+  const sortedMessages = ctx.inProgress
+    ? [
+        ...chat.messages,
+        {
+          id: -1,
+          react: chat.currentReact,
+          content: `React ${chat.targetReact} to this message`,
+          time: chat.messages[chat.messages.length - 1].time,
+          type: MessageType.RECIEVED,
+          canReact: true,
+        },
+      ]
+    : chat.messages;
 
   return (
     <Stack

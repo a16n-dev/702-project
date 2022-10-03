@@ -35,7 +35,7 @@ export const ConvoListItem = ({ id }: ConvoListItemProps) => {
           </Typography>
         </Stack>
         <Box sx={{ flexGrow: 1 }} />
-        {!chat.completed && (
+        {!chat.completed && ctx.inProgress && (
           <Box
             sx={{
               borderRadius: 999,

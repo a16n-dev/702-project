@@ -55,7 +55,7 @@ export const GameSidebar = () => {
         <Typography variant='h6'>Instructions</Typography>
         <Button onClick={showTutorial}>Replay Demo</Button>
       </Stack>
-      <Typography>{levelData.description}</Typography>
+      {levelData.description}
       <Divider sx={{ my: 2 }} />
       <Typography variant='h6' gutterBottom>
         Controls

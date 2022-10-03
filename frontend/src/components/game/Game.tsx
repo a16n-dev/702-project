@@ -15,7 +15,7 @@ export const Game = () => {
   const { chats, activeChatId, goToChat, inProgress } = useGame();
 
   return (
-    <Grid container sx={{ flexGrow: 1 }}>
+    <Grid container sx={{ flexGrow: 1 }} onClick={(e) => console.log(e)}>
       <Grid item xs={3.5}>
         <ConvoList>
           {Object.entries(chats).map(([id, chat]) => (
