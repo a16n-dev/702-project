@@ -1,4 +1,5 @@
 import { Box, Stack, Tooltip } from '@mui/material';
+import { useGame } from '../../../hooks/useGameState';
 
 export enum MessageType {
   SENT = 'SENT',
@@ -24,10 +25,15 @@ export interface MessageProps {
  * Renders a message in the chat
  */
 export const Message = ({ message, hasAbove, hasBelow }: MessageProps) => {
+  const ctx = useGame();
+
   return (
     <Stack
       direction={message.type === MessageType.RECIEVED ? 'row' : 'row-reverse'}
-      sx={{ pt: !hasAbove ? 0.5 : undefined, pb: !hasBelow ? 0.5 : undefined }}
+      sx={{
+        pt: !hasAbove ? 0.5 : undefined,
+        pb: !hasBelow ? 0.5 : undefined,
+      }}
     >
       <Tooltip
         title={message.time.toLocaleString(undefined, {
@@ -59,6 +65,8 @@ export const Message = ({ message, hasAbove, hasBelow }: MessageProps) => {
                 ? 'text.primary'
                 : 'common.white',
             maxWidth: 450,
+            height: `${ctx.controls.messageSize * 5}px`,
+            width: `${ctx.controls.messageSize * 40}px`,
           }}
         >
           {message.content}

@@ -1,7 +1,12 @@
 import { Avatar, ListItemButton, Stack, Typography } from '@mui/material';
 import { useGame } from '../../../hooks/useGameState';
 
-export const ConvoListItem = () => {
+export interface ConvoListItemProps {
+  name: string;
+  time: number;
+}
+
+export const ConvoListItem = ({ name, time }: ConvoListItemProps) => {
   const ctx = useGame();
 
   return (
@@ -14,9 +19,9 @@ export const ConvoListItem = () => {
           }}
         />
         <Stack>
-          <Typography>Lorem Ipsum</Typography>
+          <Typography>{name}</Typography>
           <Typography variant='body2' color='text.disabled'>
-            Lorem Ipsum • 3m
+            Open to react • {(time + 1) * 2} mins ago
           </Typography>
         </Stack>
       </Stack>

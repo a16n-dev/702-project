@@ -38,8 +38,8 @@ export const LEVELS: Level[] = [
     tutorial: <Level4Tutorial />,
     description: <Level4Instructions />,
     variables: [
-      Variable.reactPosition,
-      Variable.reactSize,
+      Variable.reactButtonSize,
+      Variable.reactBarSize,
       Variable.reactSpacing,
     ],
   },

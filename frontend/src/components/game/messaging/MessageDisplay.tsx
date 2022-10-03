@@ -3,14 +3,20 @@ import { Stack, Divider, Typography, Box } from '@mui/material';
 import { Message, MessageData, MessageType } from './Message';
 import { styled } from '@mui/material/styles';
 import { MessageDateDivider } from './MessageDateDivider';
+import { ReactMessage } from './ReactMessage';
 
-const messages: MessageData[] = new Array(15).fill(0).map((_, i) => ({
+const messages: MessageData[] = new Array(12).fill(0).map((_, i) => ({
   content: faker.lorem.words(faker.datatype.number({ min: 3, max: 10 })),
   time: faker.date.recent(3),
   type: faker.helpers.arrayElement(Object.values(MessageType)) as MessageType,
 }));
 
-export const MessageDisplay = () => {
+export interface MessageDisplayProps {
+  message: string;
+  emote: string;
+}
+
+export const MessageDisplay = ({ message, emote }: MessageDisplayProps) => {
   const sortedMessages = messages.sort(
     (a, b) => a.time.getTime() - b.time.getTime()
   );
@@ -32,6 +38,8 @@ export const MessageDisplay = () => {
           />
         </>
       ))}
+      {/* Last message which has reaction functionality, pass in message and target "correct" emote */}
+      <ReactMessage message={message} react={emote} />
     </Stack>
   );
 };

@@ -21,7 +21,6 @@ export const MessageBottomBar = () => {
       >
         <Typography>Type something here...</Typography>
       </Stack>
-      <Button onClick={ctx.advanceGameState}>Continue</Button>
     </Stack>
   );
 };
