@@ -1,1 +1,1 @@
-export const EMOJIS = ['💗', '😂', '😡', '😢', '👍', '👎'];
+export const EMOJIS = ['💗', '😂', '😡', '😢', '👍', '👎'] as const;

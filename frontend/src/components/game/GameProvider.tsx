@@ -4,9 +4,9 @@ import { useNavigate } from 'react-router';
 import { EMOJIS } from '../../common/emojis';
 import { Variable, VariableData } from '../../common/variables';
 import {
-  GameContextState,
+  GameChat,
   gameContext,
-  gameContextInitalState,
+  GameContextState,
 } from '../../context/gameContext';
 
 /**
@@ -28,10 +28,20 @@ export const GameProvider = ({ children }: PropsWithChildren) => {
 
   const navigate = useNavigate();
 
-  const generateTask = () => ({
-    emoji: faker.helpers.arrayElement(EMOJIS),
-    person: faker.name.firstName(),
-  });
+  const generateChats = (n: number) => {
+    const chats: { [id: number]: GameChat } = {};
+
+    for (let i = 0; i < n; i++) {
+      chats[i] = {
+        id: i,
+        name: faker.name.firstName(),
+        completed: false,
+        targetReact: faker.helpers.arrayElement(EMOJIS),
+      };
+    }
+
+    return chats;
+  };
 
   const state: GameContextState = {
     controls,
@@ -42,9 +52,21 @@ export const GameProvider = ({ children }: PropsWithChildren) => {
     currentGameState: game,
     startGame: () => {
       setGame({
+        chats: generateChats(5),
+        activeChatId: 0,
         totalTasks: 5,
         tasksCompleted: 0,
-        task: generateTask(),
+        goToChat: (id: number) => {
+          setGame((prev) =>
+            prev
+              ? {
+                  ...prev,
+                  activeChatId: id,
+                }
+              : prev
+          );
+        },
+        reactToMessage: (id: number, emoji: string) => {},
       });
     },
     hasCompletedCurrentLevel,
@@ -54,23 +76,6 @@ export const GameProvider = ({ children }: PropsWithChildren) => {
       } else {
         setLevel(level + 1);
         setHasCompletedCurrentLevel(false);
-      }
-    },
-    advanceGameState: () => {
-      if (!game) return;
-
-      const tasksCompleted = game.tasksCompleted + 1;
-
-      // If still more tasks to do generate a new task
-      if (tasksCompleted < game.totalTasks) {
-        setGame({
-          ...game,
-          tasksCompleted,
-          task: generateTask(),
-        });
-      } else {
-        setHasCompletedCurrentLevel(true);
-        setGame(undefined);
       }
     },
   };

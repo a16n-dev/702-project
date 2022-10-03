@@ -9,7 +9,6 @@ export const GameLayout = () => (
     <Grid container sx={{ flexGrow: 1 }}>
       <Grid item xs={9}>
         <Stack sx={{ height: '100%' }}>
-          <GameInstructionBar />
           <Game />
         </Stack>
       </Grid>
