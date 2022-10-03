@@ -82,6 +82,7 @@ export const GameProvider = ({ children }: PropsWithChildren) => {
       setInProgress(true);
       setChats(generateChats(5));
       setProgress([]);
+      setChatId(0);
     },
     goToNextLevel: () => {
       if (completedLevel) {
