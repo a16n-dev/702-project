@@ -12,15 +12,14 @@ import { MessageHeader } from './messaging/MessageHeader';
  * Fake messaging UI
  */
 export const Game = () => {
-  const ctx = useGame();
+  const { chats, activeChatId, goToChat, inProgress } = useGame();
 
-  // TODO: Implement the messaging UI inside of this component
   return (
     <Grid container sx={{ flexGrow: 1 }}>
       <Grid item xs={3.5}>
         <ConvoList>
-          {names.map((name, i) => (
-            <ConvoListItem name={name} time={i} />
+          {Object.entries(chats).map(([id, chat]) => (
+            <ConvoListItem key={id} id={Number(id)} />
           ))}
         </ConvoList>
       </Grid>
@@ -29,7 +28,7 @@ export const Game = () => {
         <Stack sx={{ height: '100%' }}>
           <MessageHeader />
           <Divider />
-          <MessageDisplay message='Placeholder' emote='sad' />
+          <MessageDisplay />
           <Divider />
           <MessageBottomBar />
         </Stack>

@@ -37,10 +37,10 @@ export const ConvoList = ({ children }: PropsWithChildren) => {
             sx={{ flex: '1 1 0' }}
             spacing={1}
           >
-            <IconButton size='small' color='inherit'>
+            <IconButton disabled size='small' color='inherit'>
               <CreateIcon />
             </IconButton>
-            <IconButton size='small' color='inherit'>
+            <IconButton disabled size='small' color='inherit'>
               <VideoCallIcon />
             </IconButton>
           </Stack>

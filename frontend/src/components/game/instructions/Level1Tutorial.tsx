@@ -13,11 +13,8 @@ export const Level1Tutorial = () => (
       <b>Base speed test</b>
       <Typography>
         Follow the instructions on the green bar. React to the messages as fast
-        as possible. You need to{' '}
-        <Box fontWeight='bold' display='inline'>
-          react to the correct message 5 times{' '}
-        </Box>
-        in order to stop the timer and complete the level.
+        as possible. You need to <b>react to the correct message 5 times</b> in
+        order to stop the timer and complete the level.
       </Typography>
       <br />
       <Typography textAlign={'center'} fontWeight={'bold'}>

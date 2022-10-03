@@ -1,17 +1,27 @@
-import { Avatar, ListItemButton, Stack, Typography } from '@mui/material';
+import { Avatar, Box, ListItemButton, Stack, Typography } from '@mui/material';
 import { useGame } from '../../../hooks/useGameState';
 
 export interface ConvoListItemProps {
-  name: string;
-  time: number;
+  id: number;
 }
 
-export const ConvoListItem = ({ name, time }: ConvoListItemProps) => {
+export const ConvoListItem = ({ id }: ConvoListItemProps) => {
   const ctx = useGame();
 
+  const chat = ctx.chats[id];
+
   return (
-    <ListItemButton sx={{ height: `${ctx.controls.navbarItemSize}px` }}>
-      <Stack direction={'row'} spacing={1} alignItems='center'>
+    <ListItemButton
+      sx={{ height: `${ctx.controls.navbarItemSize}px` }}
+      selected={ctx.activeChatId === id}
+      onClick={() => ctx.goToChat(id)}
+    >
+      <Stack
+        direction={'row'}
+        spacing={1}
+        alignItems='center'
+        sx={{ width: '100%' }}
+      >
         <Avatar
           sx={{
             height: `${ctx.controls.navbarItemSize / 1.5}px`,
@@ -19,11 +29,22 @@ export const ConvoListItem = ({ name, time }: ConvoListItemProps) => {
           }}
         />
         <Stack>
-          <Typography>{name}</Typography>
+          <Typography>{chat.name}</Typography>
           <Typography variant='body2' color='text.disabled'>
-            Open to react • {(time + 1) * 2} mins ago
+            React {chat.targetReact} to this message
           </Typography>
         </Stack>
+        <Box sx={{ flexGrow: 1 }} />
+        {!chat.completed && (
+          <Box
+            sx={{
+              borderRadius: 999,
+              width: 12,
+              height: 12,
+              bgcolor: 'primary.main',
+            }}
+          />
+        )}
       </Stack>
     </ListItemButton>
   );

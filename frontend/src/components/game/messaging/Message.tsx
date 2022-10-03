@@ -1,5 +1,9 @@
-import { Box, Stack, Tooltip } from '@mui/material';
+import { Box, Stack, Tooltip, IconButton } from '@mui/material';
+import { useState } from 'react';
 import { useGame } from '../../../hooks/useGameState';
+import { EMOJIS } from '../../../common/emojis';
+import EmojiEmotionsIcon from '@mui/icons-material/EmojiEmotions';
+import { ReactButton } from './ReactButton';
 
 export enum MessageType {
   SENT = 'SENT',
@@ -7,9 +11,12 @@ export enum MessageType {
 }
 
 export interface MessageData {
+  id: number;
   content: string;
+  react?: typeof EMOJIS[number];
   time: Date;
   type: MessageType;
+  canReact?: boolean;
 }
 
 export interface MessageProps {
@@ -26,13 +33,19 @@ export interface MessageProps {
  */
 export const Message = ({ message, hasAbove, hasBelow }: MessageProps) => {
   const ctx = useGame();
+  const [showReacts, setShowReacts] = useState(false);
+
+  const currentReact = message.react;
 
   return (
     <Stack
       direction={message.type === MessageType.RECIEVED ? 'row' : 'row-reverse'}
       sx={{
         pt: !hasAbove ? 0.5 : undefined,
-        pb: !hasBelow ? 0.5 : undefined,
+        pb: currentReact ? 2.5 : !hasBelow ? 0.5 : undefined,
+        ['&:hover  #react-button']: {
+          display: 'inline-flex',
+        },
       }}
     >
       <Tooltip
@@ -47,6 +60,7 @@ export const Message = ({ message, hasAbove, hasBelow }: MessageProps) => {
             borderRadius: 6,
             py: 1,
             px: 1.5,
+
             borderBottomLeftRadius:
               hasBelow && message.type === MessageType.RECIEVED ? 4 : undefined,
 
@@ -62,17 +76,39 @@ export const Message = ({ message, hasAbove, hasBelow }: MessageProps) => {
                 : 'secondary.main',
             color:
               message.type === MessageType.RECIEVED
-                ? 'text.primary'
+                ? message.canReact
+                  ? 'text.primary'
+                  : 'text.secondary'
                 : 'common.white',
-            maxWidth: 450,
-            height: `${ctx.controls.messageSize * 5}px`,
-            width: `${ctx.controls.messageSize * 40}px`,
+            maxWidth: `${ctx.controls.messageSize * 40}px`,
+            position: 'relative',
           }}
         >
           {message.content}
+          {/* Show the react */}
+          {message.react && (
+            <Box
+              sx={{
+                position: 'absolute',
+                right: 0,
+                borderWidth: 4,
+                borderStyle: 'solid',
+                borderColor: 'grey.50',
+                fontSize: 12,
+                bgcolor: 'grey.300',
+                px: 0.75,
+                py: 0.25,
+                borderRadius: 4,
+              }}
+            >
+              {message.react}
+            </Box>
+          )}
         </Box>
       </Tooltip>
-      <Stack sx={{ width: 64 }} />
+      <Stack direction={'row'} sx={{ width: 64, px: 1 }} alignItems='center'>
+        <ReactButton messageId={message.id} />
+      </Stack>
     </Stack>
   );
 };

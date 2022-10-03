@@ -8,10 +8,7 @@ export const Level4Tutorial = () => (
       <br />
       <Typography>
         Follow the instructions on the green bar. React to the messages as fast
-        as possible. You need to{' '}
-        <Box fontWeight='bold' display='inline'>
-          react to the correct message 5 times{' '}
-        </Box>
+        as possible. You need to <b>react to the correct message 5 times </b>
         in order to stop the timer and complete the level.
       </Typography>
       <br />

@@ -33,11 +33,11 @@ export const GameSidebar = () => {
     setTimer(0);
   };
   useEffect(() => {
-    if (ctx.currentGameState) {
+    if (ctx.inProgress) {
       timerRef.current = window.setTimeout(() => setTimer((t) => t + 1), 100);
     }
     return () => window.clearTimeout(timerRef.current);
-  }, [ctx.currentGameState, timer]);
+  }, [ctx.inProgress, timer]);
 
   useEffect(() => {
     showTutorial();
@@ -67,7 +67,7 @@ export const GameSidebar = () => {
           <Stack sx={{ py: 2 }}>
             <Typography variant='body2'>{data.label}</Typography>
             <Slider
-              disabled={!!ctx.currentGameState}
+              disabled={!!ctx.inProgress}
               min={data.min}
               max={data.max}
               controls={v}
@@ -78,26 +78,29 @@ export const GameSidebar = () => {
 
       <Stack direction={'row'} spacing={2}>
         <Button
-          disabled={!!ctx.currentGameState}
           fullWidth
           size='large'
           variant='contained'
           onClick={() => startGame()}
+          disabled={ctx.inProgress}
         >
-          {ctx.hasCompletedCurrentLevel ? 'Replay Level' : 'Test UI'}
+          {'Test UI'}
         </Button>
         <Button
-          disabled={!ctx.hasCompletedCurrentLevel || !!ctx.currentGameState}
           fullWidth
           color='secondary'
           size='large'
           variant='contained'
+          disabled={ctx.inProgress || !ctx.completedLevel}
           onClick={() => ctx.goToNextLevel()}
         >
           Next Level
         </Button>
       </Stack>
-      <Typography variant='h6'> Time Taken: {timer} ms</Typography>
+      <Typography> Time Taken: {timer} ms</Typography>
+      <Typography>
+        {`${ctx.progress} / ${Object.keys(ctx.chats).length}`}
+      </Typography>
     </Stack>
   );
 };
