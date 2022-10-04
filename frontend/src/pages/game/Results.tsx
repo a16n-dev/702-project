@@ -75,6 +75,9 @@ export const Results = () => {
                       },
                       xaxis: {
                         tickAmount: 3,
+                        labels: {
+                          formatter: (value) => value + 1,
+                        },
                       },
                       yaxis: {
                         tickAmount: 5,
@@ -139,6 +142,9 @@ export const Results = () => {
                       },
                       xaxis: {
                         tickAmount: 3,
+                        labels: {
+                          formatter: (value) => value + 1,
+                        },
                       },
                       yaxis: {
                         tickAmount: 5,
@@ -203,6 +209,9 @@ export const Results = () => {
                       },
                       xaxis: {
                         tickAmount: 3,
+                        labels: {
+                          formatter: (value) => value + 1,
+                        },
                       },
                       yaxis: {
                         tickAmount: 5,
