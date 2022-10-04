@@ -1,5 +1,8 @@
 import { Button, Container, Stack, TextField, Typography } from '@mui/material';
-import { Link } from 'react-router-dom';
+import { useState } from 'react';
+import { Link, useNavigate } from 'react-router-dom';
+import { ReflectionsApiFactory } from '../../api';
+import { useGame } from '../../hooks/useGameState';
 
 const QUESTIONS = [
   {
@@ -25,6 +28,23 @@ const QUESTIONS = [
 ];
 
 export const Questionaire = () => {
+  const [state, setState] = useState<{ [key: string]: string }>({});
+
+  const { results } = useGame();
+
+  const navigate = useNavigate();
+
+  const handleSubmit = () => {
+    ReflectionsApiFactory(undefined, process.env.API_URL)
+      .createReflection({
+        answers: Object.values(state),
+        levelData: results,
+      })
+      .then(() => {
+        navigate('/reflection-responses');
+      });
+  };
+
   return (
     <Container sx={{ flexGrow: 1, py: 4 }}>
       <Stack spacing={2}>
@@ -44,15 +64,23 @@ export const Questionaire = () => {
         </Typography>
         <Stack spacing={2}>
           {QUESTIONS.map((q) => (
-            <TextField multiline rows={2} label={q.question} key={q.key} />
+            <TextField
+              value={state[q.key]}
+              onChange={(e) =>
+                setState((s) => ({ ...s, [q.key]: e.target.value }))
+              }
+              multiline
+              rows={2}
+              label={q.question}
+              key={q.key}
+            />
           ))}
         </Stack>
         <Button
           size='large'
           sx={{ alignSelf: 'flex-start' }}
           variant='contained'
-          component={Link}
-          to='/reflection-responses'
+          onClick={handleSubmit}
         >
           Submit Answers
         </Button>
