@@ -60,7 +60,7 @@ export const Message = ({ message, hasAbove, hasBelow }: MessageProps) => {
             borderRadius: 6,
             py: 1,
             px: 1.5,
-
+            fontSize: ctx.controls.messageSize * 1.5,
             borderBottomLeftRadius:
               hasBelow && message.type === MessageType.RECIEVED ? 4 : undefined,
 

@@ -1,7 +1,11 @@
-import { PropsWithChildren, useEffect, useState } from 'react';
+import { PropsWithChildren, useEffect, useRef, useState } from 'react';
 import { useNavigate } from 'react-router';
 import { Variable, VariableData } from '../../common/variables';
-import { gameContext, GameContextState } from '../../context/gameContext';
+import {
+  ClickEvent,
+  gameContext,
+  GameContextState,
+} from '../../context/gameContext';
 import { generateChats } from '../../utils/contentGenerators';
 
 const DEFAULT_CONTROLS = Object.values(Variable).reduce((acc, variable) => {
@@ -14,6 +18,7 @@ const DEFAULT_CONTROLS = Object.values(Variable).reduce((acc, variable) => {
  * @see GameContextState
  */
 export const GameProvider = ({ children }: PropsWithChildren) => {
+  const events = useRef<ClickEvent[]>([]);
   const [controls, setControls] =
     useState<Record<Variable, number>>(DEFAULT_CONTROLS);
   const [chatId, setChatId] = useState(0);
@@ -21,6 +26,12 @@ export const GameProvider = ({ children }: PropsWithChildren) => {
   const [progress, setProgress] = useState<number[]>([]);
   const [inProgress, setInProgress] = useState(false);
   const [completedLevel, setCompletedLevel] = useState(false);
+  const [results, setResults] = useState<
+    {
+      events: ClickEvent[];
+      level: number;
+    }[]
+  >([]);
 
   const [level, setLevel] = useState(0);
 
@@ -31,6 +42,7 @@ export const GameProvider = ({ children }: PropsWithChildren) => {
       // Log results here
 
       // Game is finished - reset
+      setResults((r) => [...r, { level, events: events.current }]);
       setInProgress(false);
       setCompletedLevel(true);
       setChats(generateChats(10));
@@ -41,6 +53,7 @@ export const GameProvider = ({ children }: PropsWithChildren) => {
   const state: GameContextState = {
     controls,
     level,
+    results,
     chats,
     progress: progress.length,
     inProgress,
@@ -83,6 +96,12 @@ export const GameProvider = ({ children }: PropsWithChildren) => {
       setChats(generateChats(5));
       setProgress([]);
       setChatId(0);
+      events.current = [];
+    },
+    logClickEvent: (event) => {
+      if (inProgress) {
+        events.current = [...events.current, event];
+      }
     },
     goToNextLevel: () => {
       if (completedLevel) {

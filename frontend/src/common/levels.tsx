@@ -31,7 +31,7 @@ export const LEVELS: Level[] = [
   {
     tutorial: <Level3Tutorial />,
     description: <Level3Instructions />,
-    variables: [Variable.messageSize, Variable.messagePosition],
+    variables: [Variable.messageSize],
   },
   // The user can adjust the react bar
   {

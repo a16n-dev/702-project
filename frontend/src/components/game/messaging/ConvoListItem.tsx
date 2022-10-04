@@ -12,6 +12,7 @@ export const ConvoListItem = ({ id }: ConvoListItemProps) => {
 
   return (
     <ListItemButton
+      data-click-target-id={`chat-select-${id}`}
       sx={{ height: `${ctx.controls.navbarItemSize}px` }}
       selected={ctx.activeChatId === id}
       onClick={() => ctx.goToChat(id)}

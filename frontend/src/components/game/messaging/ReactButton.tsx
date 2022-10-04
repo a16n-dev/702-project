@@ -34,6 +34,7 @@ export const ReactButton = ({ messageId }: ReactButtonProps) => {
       <Tooltip title='React to message'>
         <IconButton
           id='react-button'
+          data-click-target-id={`message-react-button-${messageId}`}
           sx={{
             height: `${ctx.controls.reactButtonSize * 14}px`,
             width: `${ctx.controls.reactButtonSize * 14}px`,
@@ -63,9 +64,10 @@ export const ReactButton = ({ messageId }: ReactButtonProps) => {
           },
         }}
       >
-        <Stack direction='row'>
+        <Stack direction='row' spacing={ctx.controls.reactSpacing - 2}>
           {EMOJIS.map((e) => (
             <IconButton
+              data-click-target-id={`message-react-popup-button-${e}`}
               onClick={() => {
                 setAnchorEl(null);
                 ctx.reactToMessage(messageId, e);
@@ -73,6 +75,9 @@ export const ReactButton = ({ messageId }: ReactButtonProps) => {
               color='primary'
               key={e}
               sx={{
+                height: ctx.controls.reactBarSize * 10,
+                width: ctx.controls.reactBarSize * 10,
+                fontSize: ctx.controls.reactBarSize * 5,
                 ['& *']: {
                   transition: 'transform 0.2s',
                 },
