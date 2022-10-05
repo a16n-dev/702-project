@@ -6,24 +6,17 @@ import { useGame } from '../../hooks/useGameState';
 
 const QUESTIONS = [
   {
-    question: 'How are you feeling today?',
+    question: "What is your understanding of how Fitts' law affects design?",
     key: 'q1',
   },
   {
-    question: 'How are you feeling today?',
+    question: "How can designs take Fitts' law into account?",
     key: 'q2',
   },
   {
-    question: 'How are you feeling today?',
+    question:
+      "Which people might be most affected by lack of understanding of Fitts' law?",
     key: 'q3',
-  },
-  {
-    question: 'How are you feeling today?',
-    key: 'q4',
-  },
-  {
-    question: 'How are you feeling today?',
-    key: 'q5',
   },
 ];
 
