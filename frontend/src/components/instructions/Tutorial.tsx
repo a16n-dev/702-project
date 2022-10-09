@@ -1,4 +1,4 @@
-import { Typography, Grid } from '@mui/material';
+import { Typography, Grid, Link } from '@mui/material';
 
 /**
  * A tutorial that explains to the user how the game works
@@ -33,13 +33,34 @@ export const Tutorial = () => {
           <iframe
             width='600'
             height='337.5'
-            src={`https://www.youtube.com/embed/rokGy0huYEA`}
+            src={`https://youtu.be/zYJuy5ZGmJI`}
             frameBorder='0'
             allow='accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture'
             allowFullScreen
             title='Embedded youtube'
           />
         </div>
+        <Typography>
+          Here is a link to the pre-survey, post-survey, and Fitts' Law quiz
+        </Typography>
+        <Typography>
+          pre:{' '}
+          <Link href='https://forms.gle/y2s3XHc9faoTganHA'>
+            https://forms.gle/y2s3XHc9faoTganHA
+          </Link>
+        </Typography>
+        <Typography>
+          post:{' '}
+          <Link href='https://forms.gle/Nk6i5GU9Ha2AuBpS9'>
+            https://forms.gle/Nk6i5GU9Ha2AuBpS9
+          </Link>
+        </Typography>
+        <Typography>
+          Fitts' Law quiz:{' '}
+          <Link href='https://forms.gle/snRxznE1b34noSyV6'>
+            https://forms.gle/snRxznE1b34noSyV6
+          </Link>
+        </Typography>
       </Grid>
     </Grid>
   );
