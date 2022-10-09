@@ -31,14 +31,12 @@ export const Tutorial = () => {
         <br />
         <div className='video-responsive'>
           <iframe
-            width='600'
-            height='337.5'
-            src={`https://youtu.be/zYJuy5ZGmJI`}
-            frameBorder='0'
+            width='560'
+            height='315'
+            src='https://www.youtube.com/embed/zYJuy5ZGmJI'
+            title='YouTube video player'
             allow='accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture'
-            allowFullScreen
-            title='Embedded youtube'
-          />
+          ></iframe>
         </div>
         <Typography>
           Here is a link to the pre-survey, post-survey, and Fitts' Law quiz
