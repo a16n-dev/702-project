@@ -1,6 +1,8 @@
-# 702 Fitts Law App
+# 702 Fitts Law App Frontend
 
 ## Setup
+
+In the frontend directoy:
 
 ```sh
 # Install dependencies
@@ -11,7 +13,7 @@ yarn start
 
 ## Levels
 
-The user plays through mulitple levels, and can control different UI elements in each level. The levels are defined in `src/common/levels.tsx`.
+The user plays through multiple levels, and can control different UI elements in each level. The levels are defined in `src/common/levels.tsx`.
 
 The variables the user can control are defined in `src/common/variables.ts`.
 
