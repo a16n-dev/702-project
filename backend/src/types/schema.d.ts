@@ -23,6 +23,7 @@ declare namespace Paths {
             levelData: {
                 [key: string]: any;
             };
+            userCode: string;
         }
         namespace Responses {
             export interface $201 {
@@ -34,7 +35,6 @@ declare namespace Paths {
         namespace Responses {
             export interface $200 {
                 answers: string[][];
-                questions: string[];
             }
         }
     }
