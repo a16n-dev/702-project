@@ -39,6 +39,12 @@ export interface CreateReflectionRequest {
      * @memberof CreateReflectionRequest
      */
     'levelData': object;
+    /**
+     * 
+     * @type {string}
+     * @memberof CreateReflectionRequest
+     */
+    'userCode': string;
 }
 /**
  * 
@@ -52,12 +58,6 @@ export interface GetReflections200Response {
      * @memberof GetReflections200Response
      */
     'answers': Array<Array<string>>;
-    /**
-     * 
-     * @type {Array<string>}
-     * @memberof GetReflections200Response
-     */
-    'questions': Array<string>;
 }
 /**
  * Schema which represents the JSON returned for errors and other conditions which expect status updates.

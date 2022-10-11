@@ -3,6 +3,7 @@ import { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { ReflectionsApiFactory } from '../../api';
 import { useGame } from '../../hooks/useGameState';
+import { getUniqueCode } from '../../utils/uniqueCode';
 
 const QUESTIONS = [
   {
@@ -32,6 +33,7 @@ export const Questionaire = () => {
       .createReflection({
         answers: Object.values(state),
         levelData: results,
+        userCode: getUniqueCode(),
       })
       .then(() => {
         navigate('/reflection-responses');

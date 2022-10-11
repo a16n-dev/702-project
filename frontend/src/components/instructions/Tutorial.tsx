@@ -1,9 +1,12 @@
-import { Typography, Grid, Link } from '@mui/material';
+import { Typography, Grid, Link, Paper } from '@mui/material';
+import { getUniqueCode } from '../../utils/uniqueCode';
 
 /**
  * A tutorial that explains to the user how the game works
  */
 export const Tutorial = () => {
+  const uniqueCode = getUniqueCode();
+
   return (
     <Grid>
       <Typography>
@@ -14,13 +17,10 @@ export const Tutorial = () => {
       </Typography>
       <br />
       <Grid textAlign={'center'}>
-        <Typography>
-          {' '}
-          1. Reacting to messages without changing the UI
-        </Typography>
-        <Typography> 2. Adjusting the Navigation Bar</Typography>
-        <Typography> 3. Adjusting the Message Boxes</Typography>
-        <Typography> 4. Adjusting the React Bar</Typography>
+        <Typography>1. Reacting to messages without changing the UI</Typography>
+        <Typography>2. Adjusting the Navigation Bar</Typography>
+        <Typography>3. Adjusting the Message Boxes</Typography>
+        <Typography>4. Adjusting the React Bar</Typography>
         <br />
         <Typography>
           Each level your time taken to complete the level will be measured.
@@ -38,24 +38,30 @@ export const Tutorial = () => {
             allow='accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture'
           ></iframe>
         </div>
+        <Paper sx={{ p: 2, m: 2 }} variant='outlined'>
+          <Typography>Your unique participant code is:</Typography>
+          <Typography color='primary'>
+            <b>{uniqueCode}</b>
+          </Typography>
+        </Paper>
         <Typography>
           Here is a link to the pre-survey, post-survey, and Fitts' Law quiz
         </Typography>
         <Typography>
           pre:{' '}
-          <Link href='https://forms.gle/y2s3XHc9faoTganHA'>
+          <Link target='_blank' href='https://forms.gle/y2s3XHc9faoTganHA'>
             https://forms.gle/y2s3XHc9faoTganHA
           </Link>
         </Typography>
         <Typography>
           post:{' '}
-          <Link href='https://forms.gle/Nk6i5GU9Ha2AuBpS9'>
+          <Link target='_blank' href='https://forms.gle/Nk6i5GU9Ha2AuBpS9'>
             https://forms.gle/Nk6i5GU9Ha2AuBpS9
           </Link>
         </Typography>
         <Typography>
           Fitts' Law quiz:{' '}
-          <Link href='https://forms.gle/snRxznE1b34noSyV6'>
+          <Link target='_blank' href='https://forms.gle/snRxznE1b34noSyV6'>
             https://forms.gle/snRxznE1b34noSyV6
           </Link>
         </Typography>
