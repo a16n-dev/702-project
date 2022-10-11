@@ -4,7 +4,6 @@
 tmp/
 .projectile
 logs/
-.env
 dist/
 
 *.tern-port
