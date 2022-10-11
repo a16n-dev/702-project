@@ -11,7 +11,10 @@ type getReflections = (
 
 type createReflection = (
     req: Request<ParamsDictionary, {}, Paths.CreateReflection.RequestBody>,
-    res: Response<Paths.CreateReflection.Responses.$201 | Paths.CreateReflection.Responses.$400>
+    res: Response<
+        | Paths.CreateReflection.Responses.$201
+        | Paths.CreateReflection.Responses.$400
+    >
 ) => void
 
 interface Reflection {
@@ -20,15 +23,14 @@ interface Reflection {
 
 const getReflectionsHandler: getReflections = async (req, res) => {
     const db = await getDatabase()
-    const reflections = await db.collection('reflections').find({}).toArray() as unknown as Reflection[]
+    const reflections = (await db
+        .collection('reflections')
+        .find({})
+        .toArray()) as unknown as Reflection[]
     console.log(reflections)
 
     return res.status(StatusCodes.OK).json({
-        questions: [
-            'How did it go?',
-            'How does that make you feel?'
-        ],
-        answers: reflections.map(r => r.answers)
+        answers: reflections.map((r) => r.answers)
     })
 }
 

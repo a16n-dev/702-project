@@ -32,7 +32,6 @@ paths:
                 type: object
                 required:
                   - answers
-                  - questions
                 properties:
                   answers:
                     type: array
@@ -40,10 +39,6 @@ paths:
                       type: array
                       items:
                         type: string
-                  questions:
-                    type: array
-                    items:
-                      type: string
 
     post:
       summary: Create a reflection

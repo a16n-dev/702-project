@@ -34,7 +34,6 @@ declare namespace Paths {
         namespace Responses {
             export interface $200 {
                 answers: string[][];
-                questions: string[];
             }
         }
     }
