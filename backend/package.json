@@ -6,7 +6,6 @@
     "build": "npx tsc",
     "prestart": "npm run build",
     "start": "node .",
-    "dev": "npx nodemon --config nodemon.json src/index.ts",
     "test": "",
     "update-types": "npx dtsgen -o ./src/types/schema.d.ts ./spec.yaml"
   },
