@@ -8,9 +8,9 @@ import {
   Stack,
   Typography,
 } from '@mui/material';
-import axios from 'axios';
 import { useEffect, useState } from 'react';
-import { ReflectionsApiFactory, GetReflections200Response } from '../../api';
+import { GetReflections200Response, ReflectionsApiFactory } from '../../api';
+import { QUESTIONS } from './Questionaire';
 
 interface responseType {
   answers: { question: string; answers: string[] }[];
@@ -37,12 +37,12 @@ export const ReflectionResponses = () => {
         </Stack>
       ) : (
         <Stack spacing={2}>
-          {responses.questions.map((question, index) => (
-            <Stack key={question} spacing={1}>
-              <Typography variant='h6'>{question}</Typography>
+          {responses.answers.map((answers, index) => (
+            <Stack key={index} spacing={1}>
+              <Typography variant='h6'>{QUESTIONS[index].question}</Typography>
               <Box>
                 <Grid container spacing={2}>
-                  {responses.answers[index].map((answer) => (
+                  {answers.map((answer) => (
                     <Grid item xs={6} md={3} key={answer}>
                       <Paper sx={{ p: 2 }}>
                         <Typography>{answer}</Typography>

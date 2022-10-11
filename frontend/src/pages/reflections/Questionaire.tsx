@@ -5,7 +5,7 @@ import { ReflectionsApiFactory } from '../../api';
 import { useGame } from '../../hooks/useGameState';
 import { getUniqueCode } from '../../utils/uniqueCode';
 
-const QUESTIONS = [
+export const QUESTIONS = [
   {
     question: "What is your understanding of how Fitts' law affects design?",
     key: 'q1',
