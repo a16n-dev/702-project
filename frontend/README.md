@@ -11,6 +11,8 @@ yarn
 yarn start
 ```
 
+If running the backend server from the different port, make sure to update the url in the `.env` file
+
 ## Levels
 
 The user plays through multiple levels, and can control different UI elements in each level. The levels are defined in `src/common/levels.tsx`.
