@@ -35,7 +35,7 @@ app.use(
     OpenApiValidator.middleware({
         apiSpec: './spec.yaml',
         validateRequests: true,
-        validateResponses: true,
+        validateResponses: true
     })
 )
 
@@ -74,13 +74,20 @@ app.use((err: Error, req: Request, res: Response, next: NextFunction) => {
     })
 })
 
-if (!process.env.DB_URL) {
+if (!process.env.PORT) {
     Logger.getLogger('express').error('Environment variable "PORT" not found')
     process.exit(1)
 }
 
+if (!process.env.DB_URL) {
+    Logger.getLogger('express').error('Environment variable "DB_URL" not found')
+    process.exit(1)
+}
+
 app.listen(process.env.PORT, () => {
-    Logger.getLogger('express').info(`Server started at port ${process.env.PORT}`)
+    Logger.getLogger('express').info(
+        `Server started at port ${process.env.PORT}`
+    )
 })
 
 const signals = [
@@ -99,7 +106,9 @@ const signals = [
 ]
 signals.forEach((signal) => {
     process.on(signal, () => {
-        Logger.getLogger('general').info(`Received ${signal}, closing server...`)
+        Logger.getLogger('general').info(
+            `Received ${signal}, closing server...`
+        )
         process.exit(1)
     })
 })
