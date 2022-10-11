@@ -38,9 +38,11 @@ export const getReflections = asyncHandler(getReflectionsHandler)
 
 const createReflectionHandler: createReflection = async (req, res) => {
     const db = await getDatabase()
+
     await db.collection('reflections').insertOne({
         answers: req.body.answers,
-        levelData: req.body.levelData
+        levelData: req.body.levelData,
+        userCode: req.body.userCode
     })
     return res.status(StatusCodes.CREATED).end()
 }
